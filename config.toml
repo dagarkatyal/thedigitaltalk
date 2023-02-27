@@ -1,7 +1,7 @@
 baseURL = "https://www.thedigitaltalk.com"
 languageCode = "en-us"
 publishDir = "docs"
-#title = "The Digital Talk"
+title = "The Digital Talk"
 theme = "mediumish-gohugo-theme"
 summaryLength = 25
 copyright = "Dagar Katyal - All rights reserved"
