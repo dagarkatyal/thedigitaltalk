@@ -1,5 +1,6 @@
 baseURL = "https://dagarkatyal.github.io"
 languageCode = "en-us"
+publishDir = "docs"
 #title = "The Digital Talk"
 theme = "mediumish-gohugo-theme"
 summaryLength = 25
