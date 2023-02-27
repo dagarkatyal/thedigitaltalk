@@ -1,4 +1,4 @@
-baseURL = "https://dagarkatyal.github.io/thedigitaltalk/"
+baseURL = "https://dagarkatyal.github.io/thedigitaltalk"
 languageCode = "en-us"
 publishDir = "docs"
 #title = "The Digital Talk"
@@ -10,16 +10,16 @@ copyright = "Dagar Katyal - All rights reserved"
 
 [params.author]
   name = "Dagar Katyal"
-  thumbnail = "/images/dagarkatyal.jpeg"
+  thumbnail = "images/dagarkatyal.jpeg"
   description = "Creator of this blog."
 
   [params]
-  logo = "/images/tdtlogo.png"
+  logo = "images/tdtlogo.png"
   #description ="Tech blog!"
   #mailchimp = "you can provide a mailchimp-link here"
 
   [params.index]
-  picture = "/images/dagarkatyal.jpeg"
+  picture = "images/dagarkatyal.jpeg"
   title = "Dagar Katyal"
   subtitle = "Analytics Professional | Technology Enthusiast | Blogger"
   mdtext = '''
