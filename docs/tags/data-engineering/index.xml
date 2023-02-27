@@ -2,82 +2,82 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>data-engineering on </title>
-    <link>https://dagarkatyal.github.io/tags/data-engineering/</link>
+    <link>https://dagarkatyal.github.io/thedigitaltalk/tags/data-engineering/</link>
     <description>Recent content in data-engineering on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Dagar Katyal - All rights reserved</copyright>
-    <lastBuildDate>Thu, 07 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dagarkatyal.github.io/tags/data-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dagarkatyal.github.io/thedigitaltalk/tags/data-engineering/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Greek Architectures of Data Processing</title>
-      <link>https://dagarkatyal.github.io/blog/2019-11-07-2019-11-greek-architectures-of-data-processing/</link>
+      <link>https://dagarkatyal.github.io/thedigitaltalk/blog/2019-11-07-2019-11-greek-architectures-of-data-processing/</link>
       <pubDate>Thu, 07 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://dagarkatyal.github.io/blog/2019-11-07-2019-11-greek-architectures-of-data-processing/</guid>
+      <guid>https://dagarkatyal.github.io/thedigitaltalk/blog/2019-11-07-2019-11-greek-architectures-of-data-processing/</guid>
       <description>Greeks are famous from many things. But first of the thing that comes in the mind when we hear &amp;ldquo;Greek&amp;rdquo; is the &amp;ldquo;Greek Architecture&amp;rdquo; and &amp;ldquo;Greek Alphabets&amp;rdquo; (i.</description>
     </item>
     
     <item>
       <title>Processing Real-time streams in Databricks – Part 2</title>
-      <link>https://dagarkatyal.github.io/blog/2019-11-07-2019-11-processing-real-time-streams-in-databricks-part-2/</link>
+      <link>https://dagarkatyal.github.io/thedigitaltalk/blog/2019-11-07-2019-11-processing-real-time-streams-in-databricks-part-2/</link>
       <pubDate>Thu, 07 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://dagarkatyal.github.io/blog/2019-11-07-2019-11-processing-real-time-streams-in-databricks-part-2/</guid>
+      <guid>https://dagarkatyal.github.io/thedigitaltalk/blog/2019-11-07-2019-11-processing-real-time-streams-in-databricks-part-2/</guid>
       <description>The first part of this post can be found Processing Real-Time Streams in Databricks – Part 1
 This is the continuation of the part one, so we will not talk about the architecture and setup that is discussed in part 1.</description>
     </item>
     
     <item>
       <title>Processing Real-Time Streams in Databricks – Part 1</title>
-      <link>https://dagarkatyal.github.io/blog/2019-10-23-2019-10-processing-real-time-streams-in-databricks-part-1/</link>
+      <link>https://dagarkatyal.github.io/thedigitaltalk/blog/2019-10-23-2019-10-processing-real-time-streams-in-databricks-part-1/</link>
       <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://dagarkatyal.github.io/blog/2019-10-23-2019-10-processing-real-time-streams-in-databricks-part-1/</guid>
+      <guid>https://dagarkatyal.github.io/thedigitaltalk/blog/2019-10-23-2019-10-processing-real-time-streams-in-databricks-part-1/</guid>
       <description>Databricks is becoming the new normal in data processing technologies in cloud, both Azure and AWS. I wanted to create this post on step by step guide to get started on Realtime (streaming) analytics using spark streaming on Databricks</description>
     </item>
     
     <item>
       <title>Introduction to Delta Architecture</title>
-      <link>https://dagarkatyal.github.io/blog/2019-09-25-2019-9-introduction-to-delta-architecture/</link>
+      <link>https://dagarkatyal.github.io/thedigitaltalk/blog/2019-09-25-2019-9-introduction-to-delta-architecture/</link>
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://dagarkatyal.github.io/blog/2019-09-25-2019-9-introduction-to-delta-architecture/</guid>
+      <guid>https://dagarkatyal.github.io/thedigitaltalk/blog/2019-09-25-2019-9-introduction-to-delta-architecture/</guid>
       <description>In my previous blogs I have introduced Kappa and Lambda Architectures. These architectures are big data architectures and designed to support massive amounts of data both in real time and at rest.</description>
     </item>
     
     <item>
       <title>Redesigning Enterprise Analytics Teams</title>
-      <link>https://dagarkatyal.github.io/blog/2019-08-13-2019-8-redesigning-enterprise-analytics-teams/</link>
+      <link>https://dagarkatyal.github.io/thedigitaltalk/blog/2019-08-13-2019-8-redesigning-enterprise-analytics-teams/</link>
       <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://dagarkatyal.github.io/blog/2019-08-13-2019-8-redesigning-enterprise-analytics-teams/</guid>
+      <guid>https://dagarkatyal.github.io/thedigitaltalk/blog/2019-08-13-2019-8-redesigning-enterprise-analytics-teams/</guid>
       <description>Cloud technologies are changing the way we operate and do business. They enable us to focus the time and energy of the resources in developing applications rather than spending time on the maintaining the infrastructure.</description>
     </item>
     
     <item>
       <title>Kappa Architecture - Another way of Data Processing</title>
-      <link>https://dagarkatyal.github.io/blog/2019-07-31-2019-7-kappa-architecture-another-way-of-data-processing/</link>
+      <link>https://dagarkatyal.github.io/thedigitaltalk/blog/2019-07-31-2019-7-kappa-architecture-another-way-of-data-processing/</link>
       <pubDate>Wed, 31 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://dagarkatyal.github.io/blog/2019-07-31-2019-7-kappa-architecture-another-way-of-data-processing/</guid>
+      <guid>https://dagarkatyal.github.io/thedigitaltalk/blog/2019-07-31-2019-7-kappa-architecture-another-way-of-data-processing/</guid>
       <description>In my previous post I introduced Lambda architecture to process the stream and the batch data within the same stack. Critics argue that Lambda architecture needs the data to be processed twice, once during the speed layer and once in the batch layer.</description>
     </item>
     
     <item>
       <title>Lambda Architecture using Databricks</title>
-      <link>https://dagarkatyal.github.io/blog/2019-07-17-2019-7-lambda-architecture-using-databricks/</link>
+      <link>https://dagarkatyal.github.io/thedigitaltalk/blog/2019-07-17-2019-7-lambda-architecture-using-databricks/</link>
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://dagarkatyal.github.io/blog/2019-07-17-2019-7-lambda-architecture-using-databricks/</guid>
+      <guid>https://dagarkatyal.github.io/thedigitaltalk/blog/2019-07-17-2019-7-lambda-architecture-using-databricks/</guid>
       <description>From technology point of view Databricks is becoming the new normal in data processing technologies, in both Azure and AWS. This post provides a view of lambda architecture and uses Databricks at front and center.</description>
     </item>
     
     <item>
       <title>5 Things to get best out of Azure Databricks</title>
-      <link>https://dagarkatyal.github.io/blog/2019-06-30-2019-6-five-databricks-tricks/</link>
+      <link>https://dagarkatyal.github.io/thedigitaltalk/blog/2019-06-30-2019-6-five-databricks-tricks/</link>
       <pubDate>Sun, 30 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://dagarkatyal.github.io/blog/2019-06-30-2019-6-five-databricks-tricks/</guid>
+      <guid>https://dagarkatyal.github.io/thedigitaltalk/blog/2019-06-30-2019-6-five-databricks-tricks/</guid>
       <description>Most of the customers I talk to are directly of indirectly asking to to scale their workloads and use Databricks. It has become the new normal in the data processing in cloud.</description>
     </item>
     
