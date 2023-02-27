@@ -1,4 +1,4 @@
-baseURL = "https://dagarkatyal.github.io"
+baseURL = "https://dagarkatyal.github.io/thedigitaltalk/"
 languageCode = "en-us"
 publishDir = "docs"
 #title = "The Digital Talk"
