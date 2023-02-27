@@ -36,11 +36,11 @@ He lives in the Chicago area and loves to spend time with his family
   alertbar = false
 
 [params.social]
-  github = "https://github.com/dagarkatyal"
-  linkedin = "https://www.linkedin.com/in/dagarkatyal/"
+  github = "dagarkatyal"
+  linkedin = "dagarkatyal/"
   #xing = "<username>"
-  medium = "https://medium.com/@dagarkatyal"
-  twitter = "https://twitter.com/dagarkatyal"
+  medium = "dagarkatyal"
+  twitter = "dagarkatyal"
 
 ## Main Menu
 [[menu.main]]
