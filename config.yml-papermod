@@ -1,0 +1,54 @@
+baseURL: 'https://www.thedigitaltalk.com'
+languageCode: en-us
+title: The Digital Talk
+theme: PaperMod
+paginate: 20
+
+        
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON # is necessary
+
+params:
+    # defaultTheme: light
+    # defaultTheme: dark
+    defaultTheme: auto # to switch between dark or light according to browser theme
+
+    cover:
+        responsiveImages: false
+
+    ShowShareButtons: true
+    ShowReadingTime: true
+    ShowPostNavLinks: true
+    homeInfoParams:
+        Title: Hi there 👋 
+        Content: Welcome to my blog... For feedback and comments, reach out to me on LinkedIn...
+
+    socialIcons:
+        - name: "linkedin"
+        - url: "https://www.linkedin.com/in/dagarkatyal"
+    
+languages:
+    en:
+        languageName: "English"
+        weight: 1
+        taxonomies:
+          category: categories
+          tag: tags
+          series: series
+        menu:
+            main:
+                - name: Search
+                  url: search/
+                  weight: 1
+                - name: Blog
+                  url: post
+                  weight: 2
+                - name: About
+                  url: about
+                  weight: 3
+                - name: Tags
+                  url: tags/
+                  weight: 4

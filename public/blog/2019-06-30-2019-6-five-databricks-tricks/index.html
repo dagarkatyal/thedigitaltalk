@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.110.0">
+	
+	<link rel="icon" href="/images/tdtlogo.png">
+	
+	<title>5 Things to get best out of Azure Databricks | </title>
+	
+	
+
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dagarkatyal.github.io/blog/2019-06-30-2019-6-five-databricks-tricks/cover.jpg"/>
+<meta name="twitter:title" content="5 Things to get best out of Azure Databricks"/>
+<meta name="twitter:description" content="Most of the customers I talk to are directly of indirectly asking to to scale their workloads and use Databricks. It has become the new normal in the data processing in cloud."/>
+
+	<meta property="og:title" content="5 Things to get best out of Azure Databricks" />
+<meta property="og:description" content="Most of the customers I talk to are directly of indirectly asking to to scale their workloads and use Databricks. It has become the new normal in the data processing in cloud." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dagarkatyal.github.io/blog/2019-06-30-2019-6-five-databricks-tricks/" /><meta property="og:image" content="https://dagarkatyal.github.io/blog/2019-06-30-2019-6-five-databricks-tricks/cover.jpg"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2019-06-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-06-30T00:00:00+00:00" />
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="https://dagarkatyal.github.io/css/medium.a3d5489836b19de22a81ddc6bd21c17547d07529e67b266427378a04fa3ea727.css" integrity="sha256-o9VImDaxneIqgd3GvSHBdUfQdSnmeyZkJzeKBPo&#43;pyc=">
+
+	
+	<link rel="stylesheet" href="https://dagarkatyal.github.io/css/additional.8819b6defcdc6d21280f9b402b00df87ca779135901de6c22e708c62e20184b9.css" integrity="sha256-iBm23vzcbSEoD5tAKwDfh8p3kTWQHebCLnCMYuIBhLk=">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://dagarkatyal.github.io/">
+
+            
+            <img src="/images/tdtlogo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle"></h1>
+    <p class="lead">
+         
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=5%20Things%20to%20get%20best%20out%20of%20Azure%20Databricks&url=https%3a%2f%2fdagarkatyal.github.io%2fblog%2f2019-06-30-2019-6-five-databricks-tricks%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fdagarkatyal.github.io%2fblog%2f2019-06-30-2019-6-five-databricks-tricks%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fdagarkatyal.github.io%2fblog%2f2019-06-30-2019-6-five-databricks-tricks%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/images/dagarkatyal.jpeg" alt="Dagar Katyal">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Dagar Katyal</a><br>
+                                <span class="author-description">
+                                    Creator of this blog.<br>
+                                    <i class="far fa-star"></i>
+                                    Jun 30, 2019
+                                    <i class="far fa-clock clock"></i>
+                                    3 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">5 Things to get best out of Azure Databricks</h1> 
+                    </div>
+
+                    
+                    
+                    
+                        <img class="featured-image img-fluid" src="https://dagarkatyal.github.io/blog/2019-06-30-2019-6-five-databricks-tricks/cover.jpg" alt="thumbnail for this post">
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <p>Most of the customers I talk to are directly of indirectly asking to to scale their workloads and use Databricks. It has become the new normal in the data processing in cloud. If you are using or plan to use Azure Databricks, this post is will guide you on some interesting things that you can plan to investigate as you start. I have not touched any technology in this but is good for developers/architects to know these things</p>
+<ol>
+<li>
+<p><strong>Use interactive cluster</strong>: Teams spend lot of time playing with data and exploring the patterns. There is a certainly a need to have a unobstructed compute and horsepower available while users are exploring the data, or while developers are working on the notebooks. It’s great to have a interactive cluster available for developers or end users for such scenarios. </p>
+</li>
+<li>
+<p><strong>Use job clusters</strong>: while your jobs or notebooks are running in production there are optimizations around costs that can be achieved using job clusters. These clusters spin up for the job run-time only, provide the compute and decommission automatically once the job is done. Whether you are scheduling in azure Databricks or orchestrating from tools such as Data factory, job clusters provide a great way to optimize cost and resources in production </p>
+</li>
+<li>
+<p><strong>Use shortcuts</strong>: there are lot of shortcuts available in notebooks and the list can be accessed from within the notebooks. You won’t remember all but here is list of my favorite ones which makes thing super easy</p>
+<ol>
+<li>
+<p>Shift +Enter: use this to run the command and switch the control to next cell. Best thing is that it inserts a new cell if you are at the end of the notebook</p>
+</li>
+<li>
+<p>Ctrl + /: this is by far the most used shortcut. This comments/ un-comments the code in the cell. Best thing is that, depending upon on the magic commands you used it uses the right comment format (either ‘/’ or ‘- -’ or ‘#’) for the language </p>
+</li>
+<li>
+<p>Hold Shift key: Hold the key while deleting the cell. This will stop annoying pop up confirmation to delete the cell</p>
+</li>
+<li>
+<p><a href="https://docs.databricks.com/user-guide/notebooks/notebook-use.html">For more shortcuts refer the link</a></p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Use magic commands</strong>: I like switching the cell languages as I am going through the process of data exploration. Having come from SQL background it just makes things easy. And there is no proven performance difference between languages. All languages are first class citizens. Feel free to toggle between scala/python/SQL to get most out of Databricks. <a href="https://docs.databricks.com/user-guide/notebooks/notebook-use.html#mix-languages">Refer this link for more</a> </p>
+</li>
+<li>
+<p><strong>Use Databricks Delta</strong>: this is by far the best feature of the technology that is going to change the way data lakes are perceived and implemented. Delta provides seamless capability to upsert and delete the data in lake which was crazy overhead earlier. Using delta is going to change how lakes are designed.</p>
+<p>For more info on delta and delta lake. Look for my next blog.</p>
+</li>
+</ol>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/azure">azure</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/big-data">big-data</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/concurrency">concurrency</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/data-engineering">data-engineering</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/databricks">databricks</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/modern-data-platform">modern-data-platform</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/tips">tips</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://dagarkatyal.github.io/blog/2019-07-09-2019-7-monitor-and-manage-costs-on-azure/"> &laquo; Monitor and Manage Costs on Azure</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://dagarkatyal.github.io/blog/2019-06-24-2019-6-levels-of-analytics-maturity/">Analytics Maturity (Part 1) - Introducing the Chasm &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/ai">ai</a>
+			
+			<a class="mt-1 mb-1" href="/tags/analytics">analytics</a>
+			
+			<a class="mt-1 mb-1" href="/tags/architecture">architecture</a>
+			
+			<a class="mt-1 mb-1" href="/tags/azure">azure</a>
+			
+			<a class="mt-1 mb-1" href="/tags/bi">bi</a>
+			
+			<a class="mt-1 mb-1" href="/tags/big-data">big-data</a>
+			
+			<a class="mt-1 mb-1" href="/tags/business-intelligence">business-intelligence</a>
+			
+			<a class="mt-1 mb-1" href="/tags/concurrency">concurrency</a>
+			
+			<a class="mt-1 mb-1" href="/tags/coronavirus">coronavirus</a>
+			
+			<a class="mt-1 mb-1" href="/tags/covid">covid</a>
+			
+			<a class="mt-1 mb-1" href="/tags/covid-19">covid-19</a>
+			
+			<a class="mt-1 mb-1" href="/tags/data">data</a>
+			
+			<a class="mt-1 mb-1" href="/tags/data-engineering">data-engineering</a>
+			
+			<a class="mt-1 mb-1" href="/tags/data-governance">data-governance</a>
+			
+			<a class="mt-1 mb-1" href="/tags/databricks">databricks</a>
+			
+			<a class="mt-1 mb-1" href="/tags/descriptive">descriptive</a>
+			
+			<a class="mt-1 mb-1" href="/tags/digital">digital</a>
+			
+			<a class="mt-1 mb-1" href="/tags/forecasting">forecasting</a>
+			
+			<a class="mt-1 mb-1" href="/tags/governance">governance</a>
+			
+			<a class="mt-1 mb-1" href="/tags/information-management">information-management</a>
+			
+			<a class="mt-1 mb-1" href="/tags/machine-learning">machine-learning</a>
+			
+			<a class="mt-1 mb-1" href="/tags/management">management</a>
+			
+			<a class="mt-1 mb-1" href="/tags/maturity">maturity</a>
+			
+			<a class="mt-1 mb-1" href="/tags/modern-data-platform">modern-data-platform</a>
+			
+			<a class="mt-1 mb-1" href="/tags/organization">organization</a>
+			
+			<a class="mt-1 mb-1" href="/tags/predictive">predictive</a>
+			
+			<a class="mt-1 mb-1" href="/tags/prophet">prophet</a>
+			
+			<a class="mt-1 mb-1" href="/tags/python">python</a>
+			
+			<a class="mt-1 mb-1" href="/tags/roadmap">roadmap</a>
+			
+			<a class="mt-1 mb-1" href="/tags/spark">spark</a>
+			
+			<a class="mt-1 mb-1" href="/tags/strategy">strategy</a>
+			
+			<a class="mt-1 mb-1" href="/tags/tips">tips</a>
+			
+			<a class="mt-1 mb-1" href="/tags/zero-based">zero-based</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright Dagar Katyal - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://dagarkatyal.github.io/js/mediumish.84218587c174fd40bce82544b98851670f0b124a7324b349c54a4065e2b32ffc.js" integrity="sha256-hCGFh8F0/UC86CVEuYhRZw8LEkpzJLNJxUpAZeKzL/w="></script>
+    </body>
+</html>

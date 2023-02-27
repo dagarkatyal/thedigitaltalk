@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.110.0">
+	
+	<link rel="icon" href="/images/tdtlogo.png">
+	
+	<title>Kappa Architecture - Another way of Data Processing | </title>
+	
+	
+
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dagarkatyal.github.io/blog/2019-07-31-2019-7-kappa-architecture-another-way-of-data-processing/cover.jpg"/>
+<meta name="twitter:title" content="Kappa Architecture - Another way of Data Processing"/>
+<meta name="twitter:description" content="In my previous post I introduced Lambda architecture to process the stream and the batch data within the same stack. Critics argue that Lambda architecture needs the data to be processed twice, once during the speed layer and once in the batch layer."/>
+
+	<meta property="og:title" content="Kappa Architecture - Another way of Data Processing" />
+<meta property="og:description" content="In my previous post I introduced Lambda architecture to process the stream and the batch data within the same stack. Critics argue that Lambda architecture needs the data to be processed twice, once during the speed layer and once in the batch layer." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dagarkatyal.github.io/blog/2019-07-31-2019-7-kappa-architecture-another-way-of-data-processing/" /><meta property="og:image" content="https://dagarkatyal.github.io/blog/2019-07-31-2019-7-kappa-architecture-another-way-of-data-processing/cover.jpg"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2019-07-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-07-31T00:00:00+00:00" />
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="https://dagarkatyal.github.io/css/medium.a3d5489836b19de22a81ddc6bd21c17547d07529e67b266427378a04fa3ea727.css" integrity="sha256-o9VImDaxneIqgd3GvSHBdUfQdSnmeyZkJzeKBPo&#43;pyc=">
+
+	
+	<link rel="stylesheet" href="https://dagarkatyal.github.io/css/additional.8819b6defcdc6d21280f9b402b00df87ca779135901de6c22e708c62e20184b9.css" integrity="sha256-iBm23vzcbSEoD5tAKwDfh8p3kTWQHebCLnCMYuIBhLk=">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://dagarkatyal.github.io/">
+
+            
+            <img src="/images/tdtlogo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle"></h1>
+    <p class="lead">
+         
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=Kappa%20Architecture%20-%20Another%20way%20of%20Data%20Processing&url=https%3a%2f%2fdagarkatyal.github.io%2fblog%2f2019-07-31-2019-7-kappa-architecture-another-way-of-data-processing%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fdagarkatyal.github.io%2fblog%2f2019-07-31-2019-7-kappa-architecture-another-way-of-data-processing%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fdagarkatyal.github.io%2fblog%2f2019-07-31-2019-7-kappa-architecture-another-way-of-data-processing%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/images/dagarkatyal.jpeg" alt="Dagar Katyal">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Dagar Katyal</a><br>
+                                <span class="author-description">
+                                    Creator of this blog.<br>
+                                    <i class="far fa-star"></i>
+                                    Jul 31, 2019
+                                    <i class="far fa-clock clock"></i>
+                                    3 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">Kappa Architecture - Another way of Data Processing</h1> 
+                    </div>
+
+                    
+                    
+                    
+                        <img class="featured-image img-fluid" src="https://dagarkatyal.github.io/blog/2019-07-31-2019-7-kappa-architecture-another-way-of-data-processing/cover.jpg" alt="thumbnail for this post">
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <p>In my previous post I introduced Lambda architecture to process the stream and the batch data within the same stack. Critics argue that Lambda architecture needs the data to be processed twice, once during the speed layer and once in the batch layer. Now, imagine a scenario where we can maintain an immutable persistent stream of data and instead of processing the data twice, we can use the stream to replay the data for a different time using the code. That is the premise of Kappa architecture</p>
+<!-- raw HTML omitted -->
+<p><img src="images/img_5eaf44d084e95.png" alt="Kappa Architecture"></p>
+<p>Kappa Architecture assumes an immutable persisted stream of data can be leveraged to process the data only once and removes the need for batch layer. This can be achieved by creating a stream of all structured and unstructured data in the organization and persisting it using technology such as Kafka.</p>
+<p>The subscribers to the streams can then processed the data for different time windows depending on the use case. The data playback can be handled using the code at the subscriber level. Kafka queue provides TTL (“Time to Live”) and that can be configured to indefinite to keep all the data in the stream.</p>
+<p>The main use case for kappa architecture is where there is no need to go back and playback all the data and insights can be driven using the live streams. Machine learning and analytical models can be build using the stream and do not require the historical data for processing. Typical metadata solutions cannot be used for governance since the data cannot be processed at rest. The need of canonical models in the stream becomes important as the data is streamed through multiple sources.</p>
+<p>Following are the proposed layers in the Kappa Architecture</p>
+<h2 id="speed-layer-aka-hot-path">Speed layer aka Hot Path</h2>
+<p>The speed layer processes data streams in and keeps the queue active for indefinite amount of time. Essentially, the speed layer is double purposed as batch layer and can be configured to playback historical data as per the subscriber. This reduces the overheads of managing and transforming the data twice as compared to the lambda architecture.</p>
+<h2 id="serving-layer">Serving layer</h2>
+<p>Output from the speed layer can be consumed by various subscribers using serving layer, which responds to ad-hoc queries by returning pre-computed views or building views from the available stream of data.</p>
+<p>There is no definitive answer as to which architecture is suitable for an organization. Business case and outcomes define the best suited architecture for the data processing</p>
+<pre tabindex="0"><code>As of this writing public cloud provides do to provide capability to have indefinite TTL in the streams and thus Kappa Architecture is currently not feasible on Azure and AWS.
+</code></pre>
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/ai">ai</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/analytics">analytics</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/architecture">architecture</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/azure">azure</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/concurrency">concurrency</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/data">data</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/data-engineering">data-engineering</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/modern-data-platform">modern-data-platform</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://dagarkatyal.github.io/blog/2019-08-05-2019-7-azure-data-platform-capabilities-enterprises-waiting/"> &laquo; Azure Data Platform - Capabilities that enterprises are waiting for</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://dagarkatyal.github.io/blog/2019-07-19-2019-7-how-to-structure-the-data-lake/">How to structure the Data Lake &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/ai">ai</a>
+			
+			<a class="mt-1 mb-1" href="/tags/analytics">analytics</a>
+			
+			<a class="mt-1 mb-1" href="/tags/architecture">architecture</a>
+			
+			<a class="mt-1 mb-1" href="/tags/azure">azure</a>
+			
+			<a class="mt-1 mb-1" href="/tags/bi">bi</a>
+			
+			<a class="mt-1 mb-1" href="/tags/big-data">big-data</a>
+			
+			<a class="mt-1 mb-1" href="/tags/business-intelligence">business-intelligence</a>
+			
+			<a class="mt-1 mb-1" href="/tags/concurrency">concurrency</a>
+			
+			<a class="mt-1 mb-1" href="/tags/coronavirus">coronavirus</a>
+			
+			<a class="mt-1 mb-1" href="/tags/covid">covid</a>
+			
+			<a class="mt-1 mb-1" href="/tags/covid-19">covid-19</a>
+			
+			<a class="mt-1 mb-1" href="/tags/data">data</a>
+			
+			<a class="mt-1 mb-1" href="/tags/data-engineering">data-engineering</a>
+			
+			<a class="mt-1 mb-1" href="/tags/data-governance">data-governance</a>
+			
+			<a class="mt-1 mb-1" href="/tags/databricks">databricks</a>
+			
+			<a class="mt-1 mb-1" href="/tags/descriptive">descriptive</a>
+			
+			<a class="mt-1 mb-1" href="/tags/digital">digital</a>
+			
+			<a class="mt-1 mb-1" href="/tags/forecasting">forecasting</a>
+			
+			<a class="mt-1 mb-1" href="/tags/governance">governance</a>
+			
+			<a class="mt-1 mb-1" href="/tags/information-management">information-management</a>
+			
+			<a class="mt-1 mb-1" href="/tags/machine-learning">machine-learning</a>
+			
+			<a class="mt-1 mb-1" href="/tags/management">management</a>
+			
+			<a class="mt-1 mb-1" href="/tags/maturity">maturity</a>
+			
+			<a class="mt-1 mb-1" href="/tags/modern-data-platform">modern-data-platform</a>
+			
+			<a class="mt-1 mb-1" href="/tags/organization">organization</a>
+			
+			<a class="mt-1 mb-1" href="/tags/predictive">predictive</a>
+			
+			<a class="mt-1 mb-1" href="/tags/prophet">prophet</a>
+			
+			<a class="mt-1 mb-1" href="/tags/python">python</a>
+			
+			<a class="mt-1 mb-1" href="/tags/roadmap">roadmap</a>
+			
+			<a class="mt-1 mb-1" href="/tags/spark">spark</a>
+			
+			<a class="mt-1 mb-1" href="/tags/strategy">strategy</a>
+			
+			<a class="mt-1 mb-1" href="/tags/tips">tips</a>
+			
+			<a class="mt-1 mb-1" href="/tags/zero-based">zero-based</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright Dagar Katyal - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://dagarkatyal.github.io/js/mediumish.84218587c174fd40bce82544b98851670f0b124a7324b349c54a4065e2b32ffc.js" integrity="sha256-hCGFh8F0/UC86CVEuYhRZw8LEkpzJLNJxUpAZeKzL/w="></script>
+    </body>
+</html>

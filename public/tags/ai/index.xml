@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ai on </title>
+    <link>https://dagarkatyal.github.io/tags/ai/</link>
+    <description>Recent content in ai on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Dagar Katyal - All rights reserved</copyright>
+    <lastBuildDate>Sun, 22 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://dagarkatyal.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graph Databases for Enterprises</title>
+      <link>https://dagarkatyal.github.io/blog/2019-09-22-2019-9-graph-databases-for-enterprises/</link>
+      <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dagarkatyal.github.io/blog/2019-09-22-2019-9-graph-databases-for-enterprises/</guid>
+      <description>We have all heard about SQL databases and have used either SQL Server, Oracle, MySQL etc for storing or modeling data. The SQL family of databases store data in relational, tabular structures.</description>
+    </item>
+    
+    <item>
+      <title>Analytics Maturity (Part 2) - Crossing the Chasm</title>
+      <link>https://dagarkatyal.github.io/blog/2019-08-28-2019-8-analytics-maturity-crossing-the-chasm/</link>
+      <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dagarkatyal.github.io/blog/2019-08-28-2019-8-analytics-maturity-crossing-the-chasm/</guid>
+      <description>In my last post I wrote about the analytics maturity and how there is a gap/chasm in the curve which makes it difficult for the enterprise to move from traditional BI/descriptive level to the more modern value driven analytics.</description>
+    </item>
+    
+    <item>
+      <title>Redesigning Enterprise Analytics Teams</title>
+      <link>https://dagarkatyal.github.io/blog/2019-08-13-2019-8-redesigning-enterprise-analytics-teams/</link>
+      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dagarkatyal.github.io/blog/2019-08-13-2019-8-redesigning-enterprise-analytics-teams/</guid>
+      <description>Cloud technologies are changing the way we operate and do business. They enable us to focus the time and energy of the resources in developing applications rather than spending time on the maintaining the infrastructure.</description>
+    </item>
+    
+    <item>
+      <title>Azure Data Platform - Capabilities that enterprises are waiting for</title>
+      <link>https://dagarkatyal.github.io/blog/2019-08-05-2019-7-azure-data-platform-capabilities-enterprises-waiting/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dagarkatyal.github.io/blog/2019-08-05-2019-7-azure-data-platform-capabilities-enterprises-waiting/</guid>
+      <description>Data solutions and data architectures encompass key areas in data management and provide guidance on how we ingest the data, process the data, store the data, maintain the data, consume the data, secure the data and manage the data.</description>
+    </item>
+    
+    <item>
+      <title>Kappa Architecture - Another way of Data Processing</title>
+      <link>https://dagarkatyal.github.io/blog/2019-07-31-2019-7-kappa-architecture-another-way-of-data-processing/</link>
+      <pubDate>Wed, 31 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dagarkatyal.github.io/blog/2019-07-31-2019-7-kappa-architecture-another-way-of-data-processing/</guid>
+      <description>In my previous post I introduced Lambda architecture to process the stream and the batch data within the same stack. Critics argue that Lambda architecture needs the data to be processed twice, once during the speed layer and once in the batch layer.</description>
+    </item>
+    
+    <item>
+      <title>Analytics Maturity (Part 1) - Introducing the Chasm</title>
+      <link>https://dagarkatyal.github.io/blog/2019-06-24-2019-6-levels-of-analytics-maturity/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dagarkatyal.github.io/blog/2019-06-24-2019-6-levels-of-analytics-maturity/</guid>
+      <description>“The world’s most valuable resource is no longer oil, but data”
+— The Economist
+The above statement and article by The Economist sums up very nicely what we are reading, seeing, and witnessing everyday.</description>
+    </item>
+    
+  </channel>
+</rss>

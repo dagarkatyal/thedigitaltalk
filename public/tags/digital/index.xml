@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>digital on </title>
+    <link>https://dagarkatyal.github.io/tags/digital/</link>
+    <description>Recent content in digital on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Dagar Katyal - All rights reserved</copyright>
+    <lastBuildDate>Wed, 08 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://dagarkatyal.github.io/tags/digital/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How is Data Governance (DG) different in Digital World</title>
+      <link>https://dagarkatyal.github.io/blog/2020-01-08-2020-01-how-is-data-governance-different-in-digital-world/</link>
+      <pubDate>Wed, 08 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dagarkatyal.github.io/blog/2020-01-08-2020-01-how-is-data-governance-different-in-digital-world/</guid>
+      <description>The need of Data Governance has been established at it has become one of the key initiative’s organizations are focusing on when it comes to managing the data.</description>
+    </item>
+    
+  </channel>
+</rss>

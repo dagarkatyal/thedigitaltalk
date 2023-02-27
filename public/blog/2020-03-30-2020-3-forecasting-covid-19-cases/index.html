@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.110.0">
+	
+	<link rel="icon" href="/images/tdtlogo.png">
+	
+	<title>Forecasting COVID-19 Cases | </title>
+	
+	
+
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dagarkatyal.github.io/blog/2020-03-30-2020-3-forecasting-covid-19-cases/cover.jpg"/>
+<meta name="twitter:title" content="Forecasting COVID-19 Cases"/>
+<meta name="twitter:description" content="I have been playing with the COVID-19 data since it has been released by Johns Hopkins on Git (https://github.com/CSSEGISandData/COVID-19)
+This data is updated every day from various data sources such as WHO, CDC and health organizations of other countries."/>
+
+	<meta property="og:title" content="Forecasting COVID-19 Cases" />
+<meta property="og:description" content="I have been playing with the COVID-19 data since it has been released by Johns Hopkins on Git (https://github.com/CSSEGISandData/COVID-19)
+This data is updated every day from various data sources such as WHO, CDC and health organizations of other countries." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dagarkatyal.github.io/blog/2020-03-30-2020-3-forecasting-covid-19-cases/" /><meta property="og:image" content="https://dagarkatyal.github.io/blog/2020-03-30-2020-3-forecasting-covid-19-cases/cover.jpg"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-03-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-30T00:00:00+00:00" />
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="https://dagarkatyal.github.io/css/medium.a3d5489836b19de22a81ddc6bd21c17547d07529e67b266427378a04fa3ea727.css" integrity="sha256-o9VImDaxneIqgd3GvSHBdUfQdSnmeyZkJzeKBPo&#43;pyc=">
+
+	
+	<link rel="stylesheet" href="https://dagarkatyal.github.io/css/additional.8819b6defcdc6d21280f9b402b00df87ca779135901de6c22e708c62e20184b9.css" integrity="sha256-iBm23vzcbSEoD5tAKwDfh8p3kTWQHebCLnCMYuIBhLk=">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://dagarkatyal.github.io/">
+
+            
+            <img src="/images/tdtlogo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle"></h1>
+    <p class="lead">
+         
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=Forecasting%20COVID-19%20Cases&url=https%3a%2f%2fdagarkatyal.github.io%2fblog%2f2020-03-30-2020-3-forecasting-covid-19-cases%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fdagarkatyal.github.io%2fblog%2f2020-03-30-2020-3-forecasting-covid-19-cases%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fdagarkatyal.github.io%2fblog%2f2020-03-30-2020-3-forecasting-covid-19-cases%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/images/dagarkatyal.jpeg" alt="Dagar Katyal">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Dagar Katyal</a><br>
+                                <span class="author-description">
+                                    Creator of this blog.<br>
+                                    <i class="far fa-star"></i>
+                                    Mar 30, 2020
+                                    <i class="far fa-clock clock"></i>
+                                    3 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">Forecasting COVID-19 Cases</h1> 
+                    </div>
+
+                    
+                    
+                    
+                        <img class="featured-image img-fluid" src="https://dagarkatyal.github.io/blog/2020-03-30-2020-3-forecasting-covid-19-cases/cover.jpg" alt="thumbnail for this post">
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <p>I have been playing with the COVID-19 data since it has been released by Johns Hopkins on Git (<a href="https://github.com/CSSEGISandData/COVID-19">https://github.com/CSSEGISandData/COVID-19</a>)</p>
+<p>This data is updated every day from various data sources such as WHO, CDC and health organizations of other countries. </p>
+<p>I have been trying out few different techniques of forecasting the Confirmed Case counts by country. One of the methods I tried was using the Facebook Prophet package that uses timeseries forecasting on the historical data points. </p>
+<p>This blog talks about the how to implement Timeseries Forecasting using Prophet for predicting the number of cases by country. Since I live in US currently, I have taken US to show the plots and data. But this can be used for global data or any country.</p>
+<h2 id="step-1-setup">Step 1: Setup </h2>
+<p>I have used following setup for this project:</p>
+<ol>
+<li>
+<p>Data: Data Repository by Johns Hopkins CSSE (<a href="https://github.com/CSSEGISandData/COVID-19">https://github.com/CSSEGISandData/COVID-19</a>)</p>
+</li>
+<li>
+<p>Language: Python</p>
+</li>
+<li>
+<p>Package: Prophet</p>
+</li>
+<li>
+<p>Compute: Google Colab Research on Google Drive (<a href="https://colab.research.google.com/notebooks/intro.ipynb#recent=true">https://colab.research.google.com/notebooks/intro.ipynb#recent=true</a>)</p>
+</li>
+</ol>
+<h2 id="step-2-read-the-data">Step 2: Read the Data</h2>
+<p>The data I provided by Johns Hopkins on Git and I used Python’s pandas csv reader to read the data. Below is the code for reading the data and how the data looks like. </p>
+<p>#Read The data
+import pandas as pd
+import csv
+import numpy as np
+from datetime import datetime, timedelta
+import matplotlib.pyplot as plt
+from fbprophet import Prophet</p>
+<p>baseurl = &lsquo;<a href="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/'">https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/'</a>
+Confirmed_url = &lsquo;csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv&rsquo;
+Confirmed = pd.read_csv(baseurl + Confirmed_url, sep=&quot;,&quot;)</p>
+<!-- raw HTML omitted -->
+<p><img src="images/ScreenShot2020-03-29at9.33.17PM.png" alt="Screen Shot 2020-03-29 at 9.33.17 PM.png"></p>
+<h2 id="step-3-preparing-the-data">Step 3: Preparing the data</h2>
+<p>I have been doing lot of data manipulations across different data sets of confirmed, deaths, recovered patients. However, for ease of this blog I am showing only the transformations I have done on Confirmed cases. </p>
+<ol>
+<li>
+<p>If you see above, some countries have the data by State in the data set and some have null. First step was to fill the missing States value to keep the data cleaner as it might be used later. I have replaced the empty states with the country names</p>
+</li>
+<li>
+<p>The data above is a time series data where each date is a column. I had to transpose this data to have single date column and then transform the dates to Date field. </p>
+</li>
+<li>
+<p>This data has the total cases on a particular date. To calculate the daily new cases I created a another transformations using difference between current and previous date and the new column is called Daily_Confirmed</p>
+</li>
+</ol>
+<p>Confirmed[&lsquo;Province/State&rsquo;] = np.where(Confirmed[&lsquo;Province/State&rsquo;].isnull(), Confirmed[&lsquo;Country/Region&rsquo;], Confirmed[&lsquo;Province/State&rsquo;])</p>
+<p>Confirmed = Confirmed.melt(id_vars=[&ldquo;Province/State&rdquo;, &ldquo;Country/Region&rdquo;, &ldquo;Lat&rdquo;, &ldquo;Long&rdquo;],
+var_name=&ldquo;Date&rdquo;,
+value_name=&ldquo;Confirmed&rdquo;)</p>
+<p>Confirmed[&lsquo;Date&rsquo;] = pd.to_datetime(Confirmed[&lsquo;Date&rsquo;]).dt.date</p>
+<p>Confirmed = Confirmed.sort_values(by=&lsquo;Date&rsquo;, ascending=True)</p>
+<p>Confirmed[&lsquo;Daily_Confirmed&rsquo;] = Confirmed.groupby([&lsquo;Province/State&rsquo;,&lsquo;Country/Region&rsquo;,&lsquo;Lat&rsquo;,&lsquo;Long&rsquo;])[&lsquo;Confirmed&rsquo;].diff()</p>
+<p>subset = Confirmed[Confirmed[&lsquo;Country/Region&rsquo;] == &lsquo;US&rsquo;][:67]</p>
+<!-- raw HTML omitted -->
+<p><img src="images/ScreenShot2020-03-29at9.47.23PM.png" alt="Screen Shot 2020-03-29 at 9.47.23 PM.png"></p>
+<h2 id="step-4-forecasting">Step 4: Forecasting </h2>
+<p>Note that I have data till 28-March when I did this forecasting and will be forecasting for next 7 days. This data is then filtered for a particular country (US) in this case. Data is prepared for prophet by using certain columns that the model needs and then forecast is generated for next 7 days.</p>
+<p>See the code for forecasting using prophet below. If you need to read more about prophet please visit <a href="https://facebook.github.io/prophet/">https://facebook.github.io/prophet/</a></p>
+<p>subset = Confirmed
+subset = subset[subset[&lsquo;Country/Region&rsquo;] == &lsquo;US&rsquo;]
+subset = subset.rename(columns = {&lsquo;Date&rsquo;:&lsquo;ds&rsquo;, &lsquo;Confirmed&rsquo;:&lsquo;y&rsquo;})</p>
+<p>m = Prophet(interval_width=0.95)
+m.yearly_seasonality = True
+m.fit(subset)
+future = m.make_future_dataframe(periods=7)
+future.tail()</p>
+<p>forecast = m.predict(future)</p>
+<h2 id="step-5-visualization">Step 5: Visualization</h2>
+<p>The results viewed as table and are plotted on the graph. The dots are the actual data points and the blue line is the forecast. As per the forecast the number of cases for 29 March will be approx. 141,500</p>
+<!-- raw HTML omitted -->
+<p><img src="images/ScreenShot2020-03-29at9.54.58PM.png" alt="Screen Shot 2020-03-29 at 9.54.58 PM.png"></p>
+<!-- raw HTML omitted -->
+<p><img src="images/ScreenShot2020-03-29at9.54.45PM.png" alt="Screen Shot 2020-03-29 at 9.54.45 PM.png"></p>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/coronavirus">coronavirus</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/covid">covid</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/covid-19">covid-19</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/forecasting">forecasting</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/prophet">prophet</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/python">python</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/tips">tips</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://dagarkatyal.github.io/blog/2020-03-04-2020-3-data-governance-components-1-organization-sphere/">Data Governance Components – 1. Organization Sphere &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/ai">ai</a>
+			
+			<a class="mt-1 mb-1" href="/tags/analytics">analytics</a>
+			
+			<a class="mt-1 mb-1" href="/tags/architecture">architecture</a>
+			
+			<a class="mt-1 mb-1" href="/tags/azure">azure</a>
+			
+			<a class="mt-1 mb-1" href="/tags/bi">bi</a>
+			
+			<a class="mt-1 mb-1" href="/tags/big-data">big-data</a>
+			
+			<a class="mt-1 mb-1" href="/tags/business-intelligence">business-intelligence</a>
+			
+			<a class="mt-1 mb-1" href="/tags/concurrency">concurrency</a>
+			
+			<a class="mt-1 mb-1" href="/tags/coronavirus">coronavirus</a>
+			
+			<a class="mt-1 mb-1" href="/tags/covid">covid</a>
+			
+			<a class="mt-1 mb-1" href="/tags/covid-19">covid-19</a>
+			
+			<a class="mt-1 mb-1" href="/tags/data">data</a>
+			
+			<a class="mt-1 mb-1" href="/tags/data-engineering">data-engineering</a>
+			
+			<a class="mt-1 mb-1" href="/tags/data-governance">data-governance</a>
+			
+			<a class="mt-1 mb-1" href="/tags/databricks">databricks</a>
+			
+			<a class="mt-1 mb-1" href="/tags/descriptive">descriptive</a>
+			
+			<a class="mt-1 mb-1" href="/tags/digital">digital</a>
+			
+			<a class="mt-1 mb-1" href="/tags/forecasting">forecasting</a>
+			
+			<a class="mt-1 mb-1" href="/tags/governance">governance</a>
+			
+			<a class="mt-1 mb-1" href="/tags/information-management">information-management</a>
+			
+			<a class="mt-1 mb-1" href="/tags/machine-learning">machine-learning</a>
+			
+			<a class="mt-1 mb-1" href="/tags/management">management</a>
+			
+			<a class="mt-1 mb-1" href="/tags/maturity">maturity</a>
+			
+			<a class="mt-1 mb-1" href="/tags/modern-data-platform">modern-data-platform</a>
+			
+			<a class="mt-1 mb-1" href="/tags/organization">organization</a>
+			
+			<a class="mt-1 mb-1" href="/tags/predictive">predictive</a>
+			
+			<a class="mt-1 mb-1" href="/tags/prophet">prophet</a>
+			
+			<a class="mt-1 mb-1" href="/tags/python">python</a>
+			
+			<a class="mt-1 mb-1" href="/tags/roadmap">roadmap</a>
+			
+			<a class="mt-1 mb-1" href="/tags/spark">spark</a>
+			
+			<a class="mt-1 mb-1" href="/tags/strategy">strategy</a>
+			
+			<a class="mt-1 mb-1" href="/tags/tips">tips</a>
+			
+			<a class="mt-1 mb-1" href="/tags/zero-based">zero-based</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright Dagar Katyal - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://dagarkatyal.github.io/js/mediumish.84218587c174fd40bce82544b98851670f0b124a7324b349c54a4065e2b32ffc.js" integrity="sha256-hCGFh8F0/UC86CVEuYhRZw8LEkpzJLNJxUpAZeKzL/w="></script>
+    </body>
+</html>

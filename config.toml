@@ -1,0 +1,54 @@
+baseURL = "https://dagarkatyal.github.io"
+languageCode = "en-us"
+#title = "The Digital Talk"
+theme = "mediumish-gohugo-theme"
+summaryLength = 25
+copyright = "Dagar Katyal - All rights reserved"
+#disqusShortname = "your-shortname-here"
+#googleAnalytics = "UA-1XXXXXXX1-X"
+
+[params.author]
+  name = "Dagar Katyal"
+  thumbnail = "/images/dagarkatyal.jpeg"
+  description = "Creator of this blog."
+
+  [params]
+  logo = "/images/tdtlogo.png"
+  #description ="Tech blog!"
+  #mailchimp = "you can provide a mailchimp-link here"
+
+  [params.index]
+  picture = "/images/dagarkatyal.jpeg"
+  title = "Dagar Katyal"
+  subtitle = "Analytics Professional | Technology Enthusiast | Blogger"
+  mdtext = '''
+Dagar is a Data and AI consultant with experience in applying advanced analytics to solve real-world problems. He has consulted for Manufacturing, Travel and Hospitality, Consumer Goods, and Banking organizations on various engagements related to Data Analytics. 
+
+His focus areas are in consulting are advanced analytics, data warehousing, business intelligence, data governance, BI strategy, data science, machine learning, solution architecture, and cloud-based analytics solutions.
+
+Dagar has an MBA and Engineering degree from India and has worked with enterprise customers in India, Japan, Canada, and the USA.
+
+He lives in the Chicago area and loves to spend time with his family
+
+
+'''
+  alertbar = false
+
+[params.social]
+  github = "https://github.com/dagarkatyal"
+  linkedin = "https://www.linkedin.com/in/dagarkatyal/"
+  #xing = "<username>"
+  medium = "https://medium.com/@dagarkatyal"
+  twitter = "https://twitter.com/dagarkatyal"
+
+## Main Menu
+[[menu.main]]
+    name = "Blog"
+    weight = 100
+    identifier = "blog"
+    url = "/blog"
+[[menu.main]]
+    name = "About Me"
+    identifier = "about"
+    weight = 200
+    url = "/"

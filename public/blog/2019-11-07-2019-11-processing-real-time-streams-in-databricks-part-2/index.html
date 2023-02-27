@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.110.0">
+	
+	<link rel="icon" href="/images/tdtlogo.png">
+	
+	<title>Processing Real-time streams in Databricks – Part 2 | </title>
+	
+	
+
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dagarkatyal.github.io/blog/2019-11-07-2019-11-processing-real-time-streams-in-databricks-part-2/cover.jpg"/>
+<meta name="twitter:title" content="Processing Real-time streams in Databricks – Part 2"/>
+<meta name="twitter:description" content="The first part of this post can be found Processing Real-Time Streams in Databricks – Part 1
+This is the continuation of the part one, so we will not talk about the architecture and setup that is discussed in part 1."/>
+
+	<meta property="og:title" content="Processing Real-time streams in Databricks – Part 2" />
+<meta property="og:description" content="The first part of this post can be found Processing Real-Time Streams in Databricks – Part 1
+This is the continuation of the part one, so we will not talk about the architecture and setup that is discussed in part 1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dagarkatyal.github.io/blog/2019-11-07-2019-11-processing-real-time-streams-in-databricks-part-2/" /><meta property="og:image" content="https://dagarkatyal.github.io/blog/2019-11-07-2019-11-processing-real-time-streams-in-databricks-part-2/cover.jpg"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2019-11-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-07T00:00:00+00:00" />
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="https://dagarkatyal.github.io/css/medium.a3d5489836b19de22a81ddc6bd21c17547d07529e67b266427378a04fa3ea727.css" integrity="sha256-o9VImDaxneIqgd3GvSHBdUfQdSnmeyZkJzeKBPo&#43;pyc=">
+
+	
+	<link rel="stylesheet" href="https://dagarkatyal.github.io/css/additional.8819b6defcdc6d21280f9b402b00df87ca779135901de6c22e708c62e20184b9.css" integrity="sha256-iBm23vzcbSEoD5tAKwDfh8p3kTWQHebCLnCMYuIBhLk=">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://dagarkatyal.github.io/">
+
+            
+            <img src="/images/tdtlogo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle"></h1>
+    <p class="lead">
+         
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=Processing%20Real-time%20streams%20in%20Databricks%20%e2%80%93%20Part%202&url=https%3a%2f%2fdagarkatyal.github.io%2fblog%2f2019-11-07-2019-11-processing-real-time-streams-in-databricks-part-2%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fdagarkatyal.github.io%2fblog%2f2019-11-07-2019-11-processing-real-time-streams-in-databricks-part-2%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fdagarkatyal.github.io%2fblog%2f2019-11-07-2019-11-processing-real-time-streams-in-databricks-part-2%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/images/dagarkatyal.jpeg" alt="Dagar Katyal">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Dagar Katyal</a><br>
+                                <span class="author-description">
+                                    Creator of this blog.<br>
+                                    <i class="far fa-star"></i>
+                                    Nov 7, 2019
+                                    <i class="far fa-clock clock"></i>
+                                    3 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">Processing Real-time streams in Databricks – Part 2</h1> 
+                    </div>
+
+                    
+                    
+                    
+                        <img class="featured-image img-fluid" src="https://dagarkatyal.github.io/blog/2019-11-07-2019-11-processing-real-time-streams-in-databricks-part-2/cover.jpg" alt="thumbnail for this post">
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <p>The first part of this post can be found <a href="https://www.thedigitaltalk.com/blog/2019-10-processing-real-time-streams-in-databricks-part-1">Processing Real-Time Streams in Databricks – Part 1</a></p>
+<p>This is the continuation of the part one, so we will not talk about the architecture and setup that is discussed in part 1. In this section we go the Azure Databricks and create the cluster and notebook to ingest the data in real-time and process and visualize the stream.</p>
+<h2 id="section-4-databricks-setup">Section 4: Databricks Setup</h2>
+<p>If this is your first time in the databricks workspace, we need to setup the cluster that can be used to provide the required compute resources to read and process the streaming data. We used a simple 2 node cluster for the POC and we don’t need to install any specific library for this.</p>
+<p> </p>
+<p><img src="images/img_5eaf4501601b4.png" alt="Real-Time Streaming Analytics with Databricks cluster"></p>
+<p> </p>
+<h2 id="connect-to-the-stream-using-notebook">Connect to the Stream using Notebook</h2>
+<p>We need to create a notebook to connect to the stream and read the realtime data. Below are the commands for scala notebook</p>
+<p>Following imports are needed in the notebook to connect to the event hub and run the sql functions on the data</p>
+<p>import org.apache.spark.eventhubs._
+import org.apache.spark.sql.types._
+import org.apache.spark.sql.functions._</p>
+<p>To connect to the event hub, we need to use the connection string and then read then read the stream using spark.readStream</p>
+<p>val connectionString = ConnectionStringBuilder(&ldquo;Endpoint=sb://cncy-eventhhbnamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=TleI7l0meIkzHzfC7N2aUpp0T5U9uRj2oX1WIFHFczw=&rdquo;)
+.setEventHubName(&ldquo;cncyeventhub&rdquo;).build</p>
+<p>val customEventhubParameters =
+EventHubsConf(connectionString)
+.setMaxEventsPerTrigger(100)</p>
+<p>val incomingStream = spark.readStream.format(&ldquo;eventhubs&rdquo;).options(customEventhubParameters.toMap).load()</p>
+<p>we will then define the data structure of the stream and read the stream to the stream dataset</p>
+<p>val data = incomingStream
+.withColumn(&ldquo;Offset&rdquo;, $&ldquo;offset&rdquo;.cast(LongType))
+.withColumn(&ldquo;EnqueuedTimestamp&rdquo;, $&ldquo;enqueuedTime&rdquo;.cast(TimestampType))
+.withColumn(&ldquo;Body&rdquo;, $&ldquo;body&rdquo;.cast(StringType))
+.select(&ldquo;Offset&rdquo;, &ldquo;EnqueuedTimestamp&rdquo;,&ldquo;Body&rdquo;);
+//Create a temp table for data
+data.createOrReplaceTempView(&ldquo;data&rdquo;);</p>
+<p>Data is now a streaming data frame with the columns mentioned above. Body will contain the actual message and other columns are the metadata of the stream. We can add additional scema to the column Body and ready the data in the format we need.</p>
+<p>val jsonSchema = new StructType()
+.add(&ldquo;DeviceID&rdquo;, StringType)
+.add(&ldquo;TimeStamp&rdquo;, StringType)
+.add(&ldquo;gps_speed&rdquo;, StringType)
+.add(&ldquo;battery&rdquo;, StringType)
+.add(&ldquo;cTemp&rdquo;, StringType)
+.add(&ldquo;dtc&rdquo;, StringType)
+.add(&ldquo;eLoad&rdquo;, StringType)
+.add(&ldquo;iat&rdquo;, StringType)
+.add(&ldquo;imap&rdquo;, StringType)
+.add(&ldquo;kpf&rdquo;, StringType)
+.add(&ldquo;maf&rdquo;, StringType)
+.add(&ldquo;rpm&rdquo;, StringType)
+.add(&ldquo;speed&rdquo;, StringType)
+.add(&ldquo;tAdv&rdquo;, StringType);</p>
+<p>val messagesParsed = data.select((from_json(col(&ldquo;Body&rdquo;), jsonSchema)).alias(&ldquo;tmp&rdquo;))
+.select(&ldquo;tmp.*&rdquo;)
+.withColumnRenamed(&ldquo;TimeStamp&rdquo;,&ldquo;DeviceTimeStamp&rdquo;)
+.selectExpr(&ldquo;DeviceID&rdquo;,
+&ldquo;timestamp(from_unixtime((unix_timestamp(DeviceTimeStamp, &lsquo;M/dd/yyyy hh:mm:ss&rsquo;)), &lsquo;yyyy-MM-dd HH:mm:ss&rsquo;)) as DeviceTimeStamp&rdquo;,
+&ldquo;cast(gps_speed as int) gps_speed&rdquo; ,
+&ldquo;cast(battery as int) battery&rdquo;,
+&ldquo;cast(cTemp as int) cTemp&rdquo;,
+&ldquo;cast(dtc as int) dtc&rdquo;,
+&ldquo;cast(eLoad as int) eLoad&rdquo;,
+&ldquo;cast(iat as int) iat&rdquo;,
+&ldquo;cast(imap as int) imap&rdquo;,
+&ldquo;cast(kpf as int) kpf&rdquo;,
+&ldquo;cast(maf as int) maf&rdquo;,
+&ldquo;cast(rpm as int) rpm&rdquo;,
+&ldquo;cast(speed as int) speed&rdquo;,
+&ldquo;cast(tAdv as int) tAdv&rdquo;
+);</p>
+<p>messagesParsed.createOrReplaceTempView(&ldquo;messagesParsed&rdquo;)</p>
+<p>when we execute this cell we can see in the execution details that this is messages parsed is a SparkDataFrame.</p>
+<blockquote>
+<p>Remember Spark has lazy evaluation so no data has been actually read from this stream. This just shows the schema of the data and no data yet</p>
+</blockquote>
+<!-- raw HTML omitted -->
+<p><img src="images/img_5eaf450259fdf.png" alt="Stream init"></p>
+<p>Now when we do query on the dataset we will see that this is a streaming data and we will see the streaming data set</p>
+<p>%sql
+--Total Messages Received
+select count(1) as &lsquo;Total Messages Received&rsquo; from messagesParsed</p>
+<!-- raw HTML omitted -->
+<p><img src="images/Real-TimeStreamingAnalyticswithDatabricks7.png" alt="Real-Time Streaming Analytics with Databricks7.png"></p>
+<p>This data frame can be used like any structured dataset to query the data. Window functions can be used to group the data and show the data in visual format</p>
+<p>select DeviceID, count(1) as &lsquo;Number of Messages&rsquo; from messagesParsed group by DeviceID
+// Summary by Device and Tuppling Window
+val countsDF =
+messagesParsed
+.groupBy($&ldquo;DeviceID&rdquo;, window($&ldquo;DeviceTimeStamp&rdquo;, &ldquo;1 minutes&rdquo;))
+.count()</p>
+<p>countsDF.createOrReplaceTempView(&ldquo;countsDF&rdquo;)
+%sql select DeviceID, date_format(window.end, &ldquo;MMM-dd HH:mm&rdquo;) as TimeWindow, count as &lsquo;Number of Messages&rsquo; from countsDF order by TimeWindow, DeviceID</p>
+<h2 id="realtime-dashboard">Realtime Dashboard</h2>
+<p>Structured streaming can be used to create a Realtime dashboard in databricks and can be presented to users. Below example was created on the same dataset that I presented.</p>
+<!-- raw HTML omitted -->
+<p><img src="images/img_5eaf4503777cc.png" alt="Streaming Dashboard"></p>
+<p>This was an end to end walkthrough of the structured streaming using Databricks. Please let me know if you have any questions.</p>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/analytics">analytics</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/azure">azure</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/big-data">big-data</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/concurrency">concurrency</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/data">data</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/data-engineering">data-engineering</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/databricks">databricks</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/machine-learning">machine-learning</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/modern-data-platform">modern-data-platform</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/spark">spark</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://dagarkatyal.github.io/blog/2019-11-07-2019-11-greek-architectures-of-data-processing/"> &laquo; Greek Architectures of Data Processing</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://dagarkatyal.github.io/blog/2019-10-23-2019-10-processing-real-time-streams-in-databricks-part-1/">Processing Real-Time Streams in Databricks – Part 1 &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/ai">ai</a>
+			
+			<a class="mt-1 mb-1" href="/tags/analytics">analytics</a>
+			
+			<a class="mt-1 mb-1" href="/tags/architecture">architecture</a>
+			
+			<a class="mt-1 mb-1" href="/tags/azure">azure</a>
+			
+			<a class="mt-1 mb-1" href="/tags/bi">bi</a>
+			
+			<a class="mt-1 mb-1" href="/tags/big-data">big-data</a>
+			
+			<a class="mt-1 mb-1" href="/tags/business-intelligence">business-intelligence</a>
+			
+			<a class="mt-1 mb-1" href="/tags/concurrency">concurrency</a>
+			
+			<a class="mt-1 mb-1" href="/tags/coronavirus">coronavirus</a>
+			
+			<a class="mt-1 mb-1" href="/tags/covid">covid</a>
+			
+			<a class="mt-1 mb-1" href="/tags/covid-19">covid-19</a>
+			
+			<a class="mt-1 mb-1" href="/tags/data">data</a>
+			
+			<a class="mt-1 mb-1" href="/tags/data-engineering">data-engineering</a>
+			
+			<a class="mt-1 mb-1" href="/tags/data-governance">data-governance</a>
+			
+			<a class="mt-1 mb-1" href="/tags/databricks">databricks</a>
+			
+			<a class="mt-1 mb-1" href="/tags/descriptive">descriptive</a>
+			
+			<a class="mt-1 mb-1" href="/tags/digital">digital</a>
+			
+			<a class="mt-1 mb-1" href="/tags/forecasting">forecasting</a>
+			
+			<a class="mt-1 mb-1" href="/tags/governance">governance</a>
+			
+			<a class="mt-1 mb-1" href="/tags/information-management">information-management</a>
+			
+			<a class="mt-1 mb-1" href="/tags/machine-learning">machine-learning</a>
+			
+			<a class="mt-1 mb-1" href="/tags/management">management</a>
+			
+			<a class="mt-1 mb-1" href="/tags/maturity">maturity</a>
+			
+			<a class="mt-1 mb-1" href="/tags/modern-data-platform">modern-data-platform</a>
+			
+			<a class="mt-1 mb-1" href="/tags/organization">organization</a>
+			
+			<a class="mt-1 mb-1" href="/tags/predictive">predictive</a>
+			
+			<a class="mt-1 mb-1" href="/tags/prophet">prophet</a>
+			
+			<a class="mt-1 mb-1" href="/tags/python">python</a>
+			
+			<a class="mt-1 mb-1" href="/tags/roadmap">roadmap</a>
+			
+			<a class="mt-1 mb-1" href="/tags/spark">spark</a>
+			
+			<a class="mt-1 mb-1" href="/tags/strategy">strategy</a>
+			
+			<a class="mt-1 mb-1" href="/tags/tips">tips</a>
+			
+			<a class="mt-1 mb-1" href="/tags/zero-based">zero-based</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright Dagar Katyal - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://dagarkatyal.github.io/js/mediumish.84218587c174fd40bce82544b98851670f0b124a7324b349c54a4065e2b32ffc.js" integrity="sha256-hCGFh8F0/UC86CVEuYhRZw8LEkpzJLNJxUpAZeKzL/w="></script>
+    </body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.110.0">
+	
+	<link rel="icon" href="/images/tdtlogo.png">
+	
+	<title>Monitor and Manage Costs on Azure | </title>
+	
+	
+
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dagarkatyal.github.io/blog/2019-07-09-2019-7-monitor-and-manage-costs-on-azure/cover.jpg"/>
+<meta name="twitter:title" content="Monitor and Manage Costs on Azure"/>
+<meta name="twitter:description" content="Cost Management Cost Management solution in Azure helps in monitoring, optimizing and controlling costs of Azure Resources in the subscription and Resource Groups. Cost Management shows organizational cost and usage patterns with advanced analytics."/>
+
+	<meta property="og:title" content="Monitor and Manage Costs on Azure" />
+<meta property="og:description" content="Cost Management Cost Management solution in Azure helps in monitoring, optimizing and controlling costs of Azure Resources in the subscription and Resource Groups. Cost Management shows organizational cost and usage patterns with advanced analytics." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dagarkatyal.github.io/blog/2019-07-09-2019-7-monitor-and-manage-costs-on-azure/" /><meta property="og:image" content="https://dagarkatyal.github.io/blog/2019-07-09-2019-7-monitor-and-manage-costs-on-azure/cover.jpg"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2019-07-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-07-09T00:00:00+00:00" />
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="https://dagarkatyal.github.io/css/medium.a3d5489836b19de22a81ddc6bd21c17547d07529e67b266427378a04fa3ea727.css" integrity="sha256-o9VImDaxneIqgd3GvSHBdUfQdSnmeyZkJzeKBPo&#43;pyc=">
+
+	
+	<link rel="stylesheet" href="https://dagarkatyal.github.io/css/additional.8819b6defcdc6d21280f9b402b00df87ca779135901de6c22e708c62e20184b9.css" integrity="sha256-iBm23vzcbSEoD5tAKwDfh8p3kTWQHebCLnCMYuIBhLk=">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://dagarkatyal.github.io/">
+
+            
+            <img src="/images/tdtlogo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle"></h1>
+    <p class="lead">
+         
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=Monitor%20and%20Manage%20Costs%20on%20Azure&url=https%3a%2f%2fdagarkatyal.github.io%2fblog%2f2019-07-09-2019-7-monitor-and-manage-costs-on-azure%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fdagarkatyal.github.io%2fblog%2f2019-07-09-2019-7-monitor-and-manage-costs-on-azure%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fdagarkatyal.github.io%2fblog%2f2019-07-09-2019-7-monitor-and-manage-costs-on-azure%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/images/dagarkatyal.jpeg" alt="Dagar Katyal">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Dagar Katyal</a><br>
+                                <span class="author-description">
+                                    Creator of this blog.<br>
+                                    <i class="far fa-star"></i>
+                                    Jul 9, 2019
+                                    <i class="far fa-clock clock"></i>
+                                    4 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">Monitor and Manage Costs on Azure</h1> 
+                    </div>
+
+                    
+                    
+                    
+                        <img class="featured-image img-fluid" src="https://dagarkatyal.github.io/blog/2019-07-09-2019-7-monitor-and-manage-costs-on-azure/cover.jpg" alt="thumbnail for this post">
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <h1 id="cost-management">Cost Management</h1>
+<p>Cost Management solution in Azure helps in monitoring, optimizing and controlling costs of Azure Resources in the subscription and Resource Groups. Cost Management shows organizational cost and usage patterns with advanced analytics.</p>
+<p>There are three main components of Cost Management</p>
+<p>Three Components of Azure Cost Management</p>
+<ul>
+<li>
+<p><strong>Cost analysis</strong> - <em>Cost analysis is used to explore and analyze your organizational costs/ aggregated costs by organization to understand where costs are accrued and to identify spending trends. And you can see accumulated costs over time to estimate monthly, quarterly, or even yearly cost trends against a budget</em></p>
+</li>
+<li>
+<p><strong>Budgets</strong> - <em>Budgets help you plan for and meet financial accountability in your organization. They help prevent cost thresholds or limits from being surpassed. Budgets can also help you inform others about their spending to proactively manage costs</em></p>
+</li>
+<li>
+<p><strong>Recommendations</strong> - <em>Recommendations show how you can optimize and improve efficiency by identifying idle and underutilized resources. Or, they can show less expensive resource options</em></p>
+</li>
+</ul>
+<h1 id="cost-analysis">Cost Analysis</h1>
+<p>Cost Analysis feature in Azure lets you use Analytics and Visualization to smartly view and monitor the costs in the subscription by resources. The analysis can be done by all resource groups or by a resource group or by a resource.</p>
+<p>The usage patterns help the admins to forecast and plan for the resources carefully while keeping a close watch on the budgets defined by the organization</p>
+<p>Cost analysis is the in-built analytics on the consumption of the azure resources which capture all the information needed by organization to have a complete view of the costs and spend in Azure.</p>
+<p>To access Cost Analysis in Azure user needs to have appropriate access on the costs and subscription/resource group.</p>
+<h2 id="overview">Overview</h2>
+<p> </p>
+<!-- raw HTML omitted -->
+<p><img src="images/img_5eaf44e47b8ab.png" alt="Overview"></p>
+<p> </p>
+<p>In this example the cost analysis has been displayed for a resource group. Go the Subscription/Resource Group on which you want to do cost analysis</p>
+<p>Following are the key things that are displayed on the primary tab</p>
+<p><strong>Total</strong> – Shows the total costs for the current month.</p>
+<p><strong>Budget</strong> – Shows the planned spending limit for the selected scope, if available.</p>
+<p><strong>Cost Trend for the Current Month</strong> – Shows the cost spending for the selected month/scope</p>
+<p><strong>Donuts</strong> – Shows the costs break down by various categories such as costs by Service/Location/Resource</p>
+<h2 id="custom-visuals">Custom Visuals</h2>
+<p>The charts can be customized using various Scope available in the analysis section. Each feature provides a customization option to view the costs in a different way. Here are the options available to customize the costs</p>
+<p><strong>Time Scope</strong> provides view of Costs over different time slices as shown below</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<p><img src="images/img_5eaf44e54ed5f.jpg" alt="Time Scope"></p>
+<p> </p>
+<p>﻿<strong>Granularity Scope</strong> provides option to aggregate over period</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<p><img src="images/img_5eaf44e59a026.png" alt="Granularity Scope"></p>
+<p> </p>
+<p><strong>Grouping</strong> Option provides ability to group costs by various factors to do analysis by resource/tags/type etc.</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<p><img src="images/img_5eaf44e6179a5.png" alt="Grouping"></p>
+<p> </p>
+<p><strong>Filters</strong> can be added to reduce the scope of the visualization</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<p><img src="images/img_5eaf44e69ce97.png" alt="Filters"></p>
+<p> </p>
+<p><strong>Visualization Type</strong> can be used to customize the view of the visual using variety of inbuild graphs</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<p><img src="images/img_5eaf44e786502.png" alt="Visualization"></p>
+<p> </p>
+<h2 id="dashboard">Dashboard</h2>
+<p>Once the visualization has been customized to suit the need, users can also use the Pin to Dashboard feature to save the visualization and see multiple visualization on the same page on dashboards and then dashboards can be shared across various users in the organization. Below is a sample dashboard with 4 visuals to monitor the costs</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<p><img src="images/img_5eaf44e7eeb52.png" alt="Dashboard"></p>
+<p> </p>
+<h1 id="budgets">Budgets</h1>
+<p>Budgets let you assign a target spend on a cost management group. Budget can be created in based on a subscription or Resource Group. Budgets can be viewed along with the consumption trends over a period to track the usage in comparison the a predetermined spend</p>
+<p>Several actions can be configured based on the consumption reaching budgets at a predefined threshold</p>
+<p>To create a budget, click on the budget tab on the cost management blade and add Budget. Provide the necessary details to create a budget against a resource management group</p>
+<h2 id="view-existing-budgets">View Existing Budgets</h2>
+<p> </p>
+<!-- raw HTML omitted -->
+<p><img src="images/img_5eaf44e8f259a.png" alt="Budgets"></p>
+<p> </p>
+<h2 id="create-new-budget">Create New Budget</h2>
+<p> </p>
+<!-- raw HTML omitted -->
+<p><img src="images/img_5eaf44e99cf52.png" alt="Create New Budget"></p>
+<p> </p>
+<h2 id="view-budget-details">View Budget Details</h2>
+<p> </p>
+<!-- raw HTML omitted -->
+<p><img src="images/img_5eaf44eb8b852.png" alt="View Budget Details"></p>
+<p> </p>
+<h1 id="recommendations">Recommendations</h1>
+<p>Azure Cost Management works with Azure Advisor to provide cost optimization recommendations. Azure Advisor helps you optimize and improve efficiency by identifying idle and underutilized resources</p>
+<p>The recommendations can be accessed by clicking the Advisor recommendations tab in the Cost Management Blade</p>
+<p>Users can act on the recommendations or can change the rules for recommendations</p>
+<h2 id="view-recommendations"> View Recommendations</h2>
+<p> </p>
+<!-- raw HTML omitted -->
+<p><img src="images/img_5eaf44ec658e6.png" alt=" View Recommendations"></p>
+<p> </p>
+<h2 id="act-on-recommendations">Act on Recommendations</h2>
+<p> </p>
+<!-- raw HTML omitted -->
+<p><img src="images/img_5eaf44ed1ff95.png" alt="Act on Recommendations"></p>
+<p> </p>
+<h2 id="change-recommendation-rules">Change Recommendation Rules</h2>
+<p> </p>
+<!-- raw HTML omitted -->
+<p><img src="images/img_5eaf44eddd65d.png" alt="Change Recommendation Rules"></p>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/analytics">analytics</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/azure">azure</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/concurrency">concurrency</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/modern-data-platform">modern-data-platform</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://dagarkatyal.github.io/blog/2019-07-17-2019-7-lambda-architecture-using-databricks/"> &laquo; Lambda Architecture using Databricks</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://dagarkatyal.github.io/blog/2019-06-30-2019-6-five-databricks-tricks/">5 Things to get best out of Azure Databricks &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/ai">ai</a>
+			
+			<a class="mt-1 mb-1" href="/tags/analytics">analytics</a>
+			
+			<a class="mt-1 mb-1" href="/tags/architecture">architecture</a>
+			
+			<a class="mt-1 mb-1" href="/tags/azure">azure</a>
+			
+			<a class="mt-1 mb-1" href="/tags/bi">bi</a>
+			
+			<a class="mt-1 mb-1" href="/tags/big-data">big-data</a>
+			
+			<a class="mt-1 mb-1" href="/tags/business-intelligence">business-intelligence</a>
+			
+			<a class="mt-1 mb-1" href="/tags/concurrency">concurrency</a>
+			
+			<a class="mt-1 mb-1" href="/tags/coronavirus">coronavirus</a>
+			
+			<a class="mt-1 mb-1" href="/tags/covid">covid</a>
+			
+			<a class="mt-1 mb-1" href="/tags/covid-19">covid-19</a>
+			
+			<a class="mt-1 mb-1" href="/tags/data">data</a>
+			
+			<a class="mt-1 mb-1" href="/tags/data-engineering">data-engineering</a>
+			
+			<a class="mt-1 mb-1" href="/tags/data-governance">data-governance</a>
+			
+			<a class="mt-1 mb-1" href="/tags/databricks">databricks</a>
+			
+			<a class="mt-1 mb-1" href="/tags/descriptive">descriptive</a>
+			
+			<a class="mt-1 mb-1" href="/tags/digital">digital</a>
+			
+			<a class="mt-1 mb-1" href="/tags/forecasting">forecasting</a>
+			
+			<a class="mt-1 mb-1" href="/tags/governance">governance</a>
+			
+			<a class="mt-1 mb-1" href="/tags/information-management">information-management</a>
+			
+			<a class="mt-1 mb-1" href="/tags/machine-learning">machine-learning</a>
+			
+			<a class="mt-1 mb-1" href="/tags/management">management</a>
+			
+			<a class="mt-1 mb-1" href="/tags/maturity">maturity</a>
+			
+			<a class="mt-1 mb-1" href="/tags/modern-data-platform">modern-data-platform</a>
+			
+			<a class="mt-1 mb-1" href="/tags/organization">organization</a>
+			
+			<a class="mt-1 mb-1" href="/tags/predictive">predictive</a>
+			
+			<a class="mt-1 mb-1" href="/tags/prophet">prophet</a>
+			
+			<a class="mt-1 mb-1" href="/tags/python">python</a>
+			
+			<a class="mt-1 mb-1" href="/tags/roadmap">roadmap</a>
+			
+			<a class="mt-1 mb-1" href="/tags/spark">spark</a>
+			
+			<a class="mt-1 mb-1" href="/tags/strategy">strategy</a>
+			
+			<a class="mt-1 mb-1" href="/tags/tips">tips</a>
+			
+			<a class="mt-1 mb-1" href="/tags/zero-based">zero-based</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright Dagar Katyal - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://dagarkatyal.github.io/js/mediumish.84218587c174fd40bce82544b98851670f0b124a7324b349c54a4065e2b32ffc.js" integrity="sha256-hCGFh8F0/UC86CVEuYhRZw8LEkpzJLNJxUpAZeKzL/w="></script>
+    </body>
+</html>

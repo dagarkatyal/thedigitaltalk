@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.110.0">
+	
+	<link rel="icon" href="/images/tdtlogo.png">
+	
+	<title>Analytics Maturity (Part 1) - Introducing the Chasm | </title>
+	
+	
+
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dagarkatyal.github.io/blog/2019-06-24-2019-6-levels-of-analytics-maturity/cover.jpg"/>
+<meta name="twitter:title" content="Analytics Maturity (Part 1) - Introducing the Chasm"/>
+<meta name="twitter:description" content="“The world’s most valuable resource is no longer oil, but data”
+— The Economist
+The above statement and article by The Economist sums up very nicely what we are reading, seeing, and witnessing everyday."/>
+
+	<meta property="og:title" content="Analytics Maturity (Part 1) - Introducing the Chasm" />
+<meta property="og:description" content="“The world’s most valuable resource is no longer oil, but data”
+— The Economist
+The above statement and article by The Economist sums up very nicely what we are reading, seeing, and witnessing everyday." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dagarkatyal.github.io/blog/2019-06-24-2019-6-levels-of-analytics-maturity/" /><meta property="og:image" content="https://dagarkatyal.github.io/blog/2019-06-24-2019-6-levels-of-analytics-maturity/cover.jpg"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2019-06-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-06-24T00:00:00+00:00" />
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+
+	
+	<link rel="stylesheet" href="https://dagarkatyal.github.io/css/medium.a3d5489836b19de22a81ddc6bd21c17547d07529e67b266427378a04fa3ea727.css" integrity="sha256-o9VImDaxneIqgd3GvSHBdUfQdSnmeyZkJzeKBPo&#43;pyc=">
+
+	
+	<link rel="stylesheet" href="https://dagarkatyal.github.io/css/additional.8819b6defcdc6d21280f9b402b00df87ca779135901de6c22e708c62e20184b9.css" integrity="sha256-iBm23vzcbSEoD5tAKwDfh8p3kTWQHebCLnCMYuIBhLk=">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://dagarkatyal.github.io/">
+
+            
+            <img src="/images/tdtlogo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle"></h1>
+    <p class="lead">
+         
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=Analytics%20Maturity%20%28Part%201%29%20-%20Introducing%20the%20Chasm&url=https%3a%2f%2fdagarkatyal.github.io%2fblog%2f2019-06-24-2019-6-levels-of-analytics-maturity%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fdagarkatyal.github.io%2fblog%2f2019-06-24-2019-6-levels-of-analytics-maturity%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fdagarkatyal.github.io%2fblog%2f2019-06-24-2019-6-levels-of-analytics-maturity%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/images/dagarkatyal.jpeg" alt="Dagar Katyal">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Dagar Katyal</a><br>
+                                <span class="author-description">
+                                    Creator of this blog.<br>
+                                    <i class="far fa-star"></i>
+                                    Jun 24, 2019
+                                    <i class="far fa-clock clock"></i>
+                                    5 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">Analytics Maturity (Part 1) - Introducing the Chasm</h1> 
+                    </div>
+
+                    
+                    
+                    
+                        <img class="featured-image img-fluid" src="https://dagarkatyal.github.io/blog/2019-06-24-2019-6-levels-of-analytics-maturity/cover.jpg" alt="thumbnail for this post">
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <p> 
+ </p>
+<blockquote>
+<p>“The world’s most valuable resource is no longer oil, but data”</p>
+</blockquote>
+<p>— The Economist</p>
+<p>The above statement and article by The Economist sums up very nicely what we are reading, seeing, and witnessing everyday. Read full article <a href="https://www.economist.com/leaders/2017/05/06/the-worlds-most-valuable-resource-is-no-longer-oil-but-data">here</a>. Organizations are challenged daily to come up with innovative business models, use data at the core of the business and make more data driven decisions.</p>
+<p>I have seen few analytics maturity matrix/curves over the years. Most of them talk about what types of analytics organizations do along the maturity curve. I want to build on those models and include the kind of tools and methods that go along those maturity steps. I also want to introduce the concept of Chasm. Its essentially a bump or a gap in the journey of analytics maturity which takes a little more than usual effort to cross.</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<p><img src="images/Picture1.png" alt="Fig 1: Analytics Maturity Curve"></p>
+<p>Fig 1: Analytics Maturity Curve</p>
+<p> </p>
+<h3 id="level-1-data-awareness">Level 1: Data Awareness</h3>
+<p>This is the first phase and typically not too long in terms of duration. Organizations, in this phase, realize the value of the data and acknowledge the need to use data to make decisions. For new companies and startups this might be a phase, but most of the established organizations have crossed this level.</p>
+<p>This is the phase where lot of work happens in Excel and people tend to wrap their head around use of data. Most of the data management processes are non existent and there is no formal team managing analytics in the organizations</p>
+<h3 id="level-2-descriptive">Level 2: Descriptive</h3>
+<p>This is the most common spot of maturity, where we see enterprises using data to make decisions. The companies are using formal Business Intelligence Tools and trying to realize the value of the investments made in the data warehouses and similar tools. The IT organizations take months/years to build new capability in data and are very inflexible in keeping up with the demands of business users.</p>
+<p>There is a continuous need to use more data by business users, but the tools and processes are not flexible enough to make it happen. It is relatively easy to get lost in this phase and stop thinking about the next steps.</p>
+<p>Some organizations do use advanced self service BI tools such as Power BI and Tableau and those tools provide a lot of capability to end users.</p>
+<h3 id="chasm">Chasm</h3>
+<p>The advanced self service tools such as Power BI and Tableau can provide a lot of value and these tools are are loaded with very advanced capabilities. However, the organizations are not ready with the right plumbing to serve the right data at the right time to these tools and hence the value outcome is not as anticipated. This is what I call Chasm. Where investments are not returning the value and the tools which were supposed to change the game become just another BI tools. This area is essentially a gap in moving from basic BI reporting to next level of maturity. It is difficult to cross this phase, because this demands more investments and focus from the organization.</p>
+<p>There are logical steps that we can take from technology, and change management perspective which can make leaping across the chasm easier.</p>
+<h3 id="level-3-diagnostic">Level 3: Diagnostic</h3>
+<p>At level 3 of maturity, organizations have crossed the chasm and are ready to make the leap to complete data driven decisions makings. The problems of level 2 have been fixed and the organizations use some type of Modern Data Platform Architecture, along with Data Lake, to support the next level of decision making with analytics.</p>
+<p>The architecture provides more tools and better access to data to start doing diagnostic analytics. The tools are still the same BI tools (Power BI, Tableau etc.), but introduction of data lakes and modern data platforms have given more power to the customers</p>
+<h3 id="level-4-predictive">Level 4: Predictive</h3>
+<p>As customers get the strong foundation built in terms or data platform and data starts logically filling the lakes, doing forecasts and using historical data to predict the future with a certain confidence interval becomes easier. A lot of companies that’s cross the chasm do it so that they can do predictive analytics . Use of machine learning techniques becomes unavoidable and for most of the organizations, cloud provides the necessary compute.</p>
+<p>This is the phase where business models start to change and data can become part of the core business. For example, insurance companies and automakers are using telematics data to predict the automobile health or the driving behavior of the driver. These are two different models compared to traditional insurance and automotive industries</p>
+<h3 id="level-5-prescriptive">Level 5: Prescriptive</h3>
+<p>This can be perceived as being clustered with previous step. It’s still the machine learning and similar techniques at this level, but the use become different. Focus is not to improve business process and achieve efficiency using optimization.</p>
+<p>Some techniques involve optimizations using genetic algorithms and other advanced machine learning technologies. The goal is no longer to predict with certain confidence, but to find the most optimal outcome given the constraints.</p>
+<h3 id="level-6-scenario-modeling">Level 6: scenario modeling</h3>
+<p>This phase is not listed in most of the maturity curve. This is more of perception and organization attitude towards embracing the data culture. Scenario modeling here refers to understanding and getting ready for all the possible outcomes of running the business. The Machine Learning, the AI and the predictions tell what will happen and what to do in certain closed system. However, when we consider all external factors in running a business there are certain unknown-unknowns. Getting ready to handle those unknowns and having the agility and power to face those scenarios using the power of data is the ultimate maturity.</p>
+<p>In this article I have spoken about the chasm, but I will write another blog on how I work with my customers on crossing the chasm. More on that in my next article on <a href="/blog/2019-7-analytics-maturity-crossing-the-chasm">Analytics Maturity (Part 2) - Crossing the Chasm</a></p>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/ai">ai</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/analytics">analytics</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/bi">bi</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/big-data">big-data</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/business-intelligence">business-intelligence</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/concurrency">concurrency</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/data">data</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/descriptive">descriptive</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/machine-learning">machine-learning</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/maturity">maturity</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/predictive">predictive</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://dagarkatyal.github.io/blog/2019-06-30-2019-6-five-databricks-tricks/"> &laquo; 5 Things to get best out of Azure Databricks</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://dagarkatyal.github.io/blog/2019-06-18-2019-6-introduction-to-distributed-computing/">Introduction to Distributed Computing &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/ai">ai</a>
+			
+			<a class="mt-1 mb-1" href="/tags/analytics">analytics</a>
+			
+			<a class="mt-1 mb-1" href="/tags/architecture">architecture</a>
+			
+			<a class="mt-1 mb-1" href="/tags/azure">azure</a>
+			
+			<a class="mt-1 mb-1" href="/tags/bi">bi</a>
+			
+			<a class="mt-1 mb-1" href="/tags/big-data">big-data</a>
+			
+			<a class="mt-1 mb-1" href="/tags/business-intelligence">business-intelligence</a>
+			
+			<a class="mt-1 mb-1" href="/tags/concurrency">concurrency</a>
+			
+			<a class="mt-1 mb-1" href="/tags/coronavirus">coronavirus</a>
+			
+			<a class="mt-1 mb-1" href="/tags/covid">covid</a>
+			
+			<a class="mt-1 mb-1" href="/tags/covid-19">covid-19</a>
+			
+			<a class="mt-1 mb-1" href="/tags/data">data</a>
+			
+			<a class="mt-1 mb-1" href="/tags/data-engineering">data-engineering</a>
+			
+			<a class="mt-1 mb-1" href="/tags/data-governance">data-governance</a>
+			
+			<a class="mt-1 mb-1" href="/tags/databricks">databricks</a>
+			
+			<a class="mt-1 mb-1" href="/tags/descriptive">descriptive</a>
+			
+			<a class="mt-1 mb-1" href="/tags/digital">digital</a>
+			
+			<a class="mt-1 mb-1" href="/tags/forecasting">forecasting</a>
+			
+			<a class="mt-1 mb-1" href="/tags/governance">governance</a>
+			
+			<a class="mt-1 mb-1" href="/tags/information-management">information-management</a>
+			
+			<a class="mt-1 mb-1" href="/tags/machine-learning">machine-learning</a>
+			
+			<a class="mt-1 mb-1" href="/tags/management">management</a>
+			
+			<a class="mt-1 mb-1" href="/tags/maturity">maturity</a>
+			
+			<a class="mt-1 mb-1" href="/tags/modern-data-platform">modern-data-platform</a>
+			
+			<a class="mt-1 mb-1" href="/tags/organization">organization</a>
+			
+			<a class="mt-1 mb-1" href="/tags/predictive">predictive</a>
+			
+			<a class="mt-1 mb-1" href="/tags/prophet">prophet</a>
+			
+			<a class="mt-1 mb-1" href="/tags/python">python</a>
+			
+			<a class="mt-1 mb-1" href="/tags/roadmap">roadmap</a>
+			
+			<a class="mt-1 mb-1" href="/tags/spark">spark</a>
+			
+			<a class="mt-1 mb-1" href="/tags/strategy">strategy</a>
+			
+			<a class="mt-1 mb-1" href="/tags/tips">tips</a>
+			
+			<a class="mt-1 mb-1" href="/tags/zero-based">zero-based</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright Dagar Katyal - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://dagarkatyal.github.io/js/mediumish.84218587c174fd40bce82544b98851670f0b124a7324b349c54a4065e2b32ffc.js" integrity="sha256-hCGFh8F0/UC86CVEuYhRZw8LEkpzJLNJxUpAZeKzL/w="></script>
+    </body>
+</html>
