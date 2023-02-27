@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>coronavirus on </title>
-    <link>https://dagarkatyal.github.io/thedigitaltalk/tags/coronavirus/</link>
+    <link>https://www.thedigitaltalk.com/tags/coronavirus/</link>
     <description>Recent content in coronavirus on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Dagar Katyal - All rights reserved</copyright>
-    <lastBuildDate>Mon, 30 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://dagarkatyal.github.io/thedigitaltalk/tags/coronavirus/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.thedigitaltalk.com/tags/coronavirus/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Forecasting COVID-19 Cases</title>
-      <link>https://dagarkatyal.github.io/thedigitaltalk/blog/2020-03-30-2020-3-forecasting-covid-19-cases/</link>
+      <link>https://www.thedigitaltalk.com/blog/2020-03-30-2020-3-forecasting-covid-19-cases/</link>
       <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://dagarkatyal.github.io/thedigitaltalk/blog/2020-03-30-2020-3-forecasting-covid-19-cases/</guid>
+      <guid>https://www.thedigitaltalk.com/blog/2020-03-30-2020-3-forecasting-covid-19-cases/</guid>
       <description>I have been playing with the COVID-19 data since it has been released by Johns Hopkins on Git (https://github.com/CSSEGISandData/COVID-19)
 This data is updated every day from various data sources such as WHO, CDC and health organizations of other countries.</description>
     </item>
